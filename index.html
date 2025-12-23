@@ -15,30 +15,38 @@ body {
     background: #031f25;
     color: #d8f6ff;
 }
+
 h1 {
     text-align: center;
-    margin: 40px 0 10px 0;
+    margin: 40px 0 10px;
     color: #5fe7ff;
     text-shadow: 0 0 15px #37d4f5;
 }
+
 .subheading {
     text-align: center;
-    color: #9ff3ff;
     margin-bottom: 30px;
+    color: #9ff3ff;
 }
+
+/* IMAGE STYLE */
 .hero-img {
     display: block;
     margin: 20px auto 40px auto;
     width: 400px;
-    border-radius: 12px;
+    max-width: 90%;
     border: 2px solid #0ff;
+    border-radius: 12px;
 }
+
+/* GRID */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
     gap: 20px;
-    padding: 0 60px 60px 60px;
+    padding: 0 60px 60px;
 }
+
 .case-box {
     background: rgba(0,60,70,0.5);
     border: 2px solid #0ff;
@@ -48,26 +56,33 @@ h1 {
     cursor: pointer;
     transition: 0.3s;
 }
+
 .case-box:hover {
     transform: scale(1.05);
     box-shadow: 0 0 25px #0ff;
 }
+
+/* SUBPAGES */
 .subpage {
     display: none;
     padding: 40px;
 }
+
 .back-btn {
+    margin-bottom: 20px;
     padding: 10px 18px;
     background: #0ff;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: bold;
 }
+
 pre {
     background: rgba(0,0,0,0.6);
     padding: 20px;
     border-radius: 10px;
+    overflow-x: auto;
 }
 </style>
 </head>
@@ -77,57 +92,63 @@ pre {
 <h1>🌆 Jena Smart City</h1>
 <p class="subheading">My Business Case Portfolio</p>
 
-<!-- IMAGE -->
-<img src="images/jena.jpeg" alt="Jena City" class="hero-img">
+<!-- ✅ IMAGE -->
+<img src="images/jena.jpeg" alt="Jena City Image" class="hero-img">
 
-<!-- GRID -->
+<!-- ✅ MAIN GRID -->
 <div class="grid">
-    <div class="case-box" onclick="openCase('smart-grid')">⚡ Smart Grid</div>
-    <div class="case-box" onclick="openCase('waste-sorting')">🗑 Waste Sorting</div>
-    <div class="case-box" onclick="openCase('drone-delivery')">🚁 Drone Delivery</div>
-    <div class="case-box" onclick="openCase('health-analytics')">🏥 Healthcare AI</div>
+    <div class="case-box" onclick="openCase('smart-grid')">⚡ Smart Grid & Energy</div>
+    <div class="case-box" onclick="openCase('waste-sorting')">🗑 Intelligent Waste Sorting</div>
+    <div class="case-box" onclick="openCase('drone-delivery')">🚁 Drone Delivery Network</div>
+    <div class="case-box" onclick="openCase('health-analytics')">🏥 Predictive Healthcare</div>
     <div class="case-box" onclick="openCase('green-mobility')">🚆 Green Mobility</div>
 </div>
 
-<!-- SUBPAGES -->
+<!-- SUBPAGE 1 -->
 <section id="smart-grid" class="subpage">
 <button class="back-btn" onclick="goBack()">⟵ Back</button>
-<h2>⚡ Smart Grid</h2>
-<p>AI-powered energy distribution system.</p>
+<h2>⚡ Smart Grid & Energy Distribution</h2>
+<p>AI-based monitoring and load balancing for efficient energy usage.</p>
 </section>
 
+<!-- SUBPAGE 2 -->
 <section id="waste-sorting" class="subpage">
 <button class="back-btn" onclick="goBack()">⟵ Back</button>
-<h2>🗑 Waste Sorting</h2>
-<p>Automated AI waste classification.</p>
+<h2>🗑 Intelligent Waste Sorting</h2>
+<p>AI-driven waste classification for cleaner cities.</p>
 </section>
 
+<!-- SUBPAGE 3 -->
 <section id="drone-delivery" class="subpage">
 <button class="back-btn" onclick="goBack()">⟵ Back</button>
-<h2>🚁 Drone Delivery</h2>
-<p>Autonomous drone logistics.</p>
+<h2>🚁 Drone-Based Delivery</h2>
+<p>Fast and autonomous delivery using optimized routes.</p>
 </section>
 
+<!-- SUBPAGE 4 -->
 <section id="health-analytics" class="subpage">
 <button class="back-btn" onclick="goBack()">⟵ Back</button>
-<h2>🏥 Healthcare Analytics</h2>
-<p>Predictive AI healthcare models.</p>
+<h2>🏥 Predictive Healthcare Analytics</h2>
+<p>Early disease prediction using AI models.</p>
 </section>
 
+<!-- SUBPAGE 5 -->
 <section id="green-mobility" class="subpage">
 <button class="back-btn" onclick="goBack()">⟵ Back</button>
-<h2>🚆 Green Mobility</h2>
-<p>Sustainable transport hubs.</p>
+<h2>🚆 Green Mobility Hubs</h2>
+<p>EVs, e-bikes, and sustainable transport solutions.</p>
 </section>
 
 <script>
-function openCase(id){
-    document.querySelectorAll('.subpage').forEach(s => s.style.display='none');
-    document.getElementById(id).style.display='block';
+function openCase(id) {
+    document.querySelectorAll('.subpage').forEach(s => s.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
     window.scrollTo(0,0);
 }
-function goBack(){
-    document.querySelectorAll('.subpage').forEach(s => s.style.display='none');
+
+function goBack() {
+    document.querySelectorAll('.subpage').forEach(s => s.style.display = 'none');
+    window.scrollTo(0,0);
 }
 </script>
 
