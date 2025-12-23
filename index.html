@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jena Smart City – Business Cases</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: #031f25;
+    color: #d8f6ff;
+    scroll-behavior: smooth;
+}
+h1 {
+    text-align: center;
+    margin: 40px 0;
+    color: #5fe7ff;
+    text-shadow: 0 0 15px #37d4f5;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+    padding: 0 60px 60px 60px;
+}
+.case-box {
+    background: rgba(0,60,70,0.5);
+    border: 2px solid #0ff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.case-box:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 0 30px #0ff, 0 0 20px rgba(0,255,255,0.5);
+}
+.subpage {
+    display: none;
+    padding: 40px;
+}
+.back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 18px;
+    background: #0ff;
+    color: #031f25;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+pre {
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-family: monospace;
+}
+.stg-image {
+    max-width: 80%;
+    display: block;
+    margin: 20px auto;
+    border: 2px solid #0ff;
+    border-radius: 10px;
+}
+</style>
+</head>
+<body>
+
+<h1>🌆 Jena Smart City – Business Cases</h1>
+
+<!-- Front Page Grid -->
+<div class="grid">
+    <div class="case-box" onclick="openCase('smart-grid')">⚡ Smart Grid & Energy Distribution</div>
+    <div class="case-box" onclick="openCase('waste-sorting')">🗑 Intelligent Waste Sorting System</div>
+    <div class="case-box" onclick="openCase('drone-delivery')">🚁 Drone-Based Delivery Network</div>
+    <div class="case-box" onclick="openCase('health-analytics')">🏥 Predictive Healthcare Analytics</div>
+    <div class="case-box" onclick="openCase('green-mobility')">🚆 Green Mobility Hubs</div>
+<h2>MY BUSSINESS CASES</h2>
+<img src="images/jena.jpeg" alt="city image" width="400">
+</div>
+
+
+<!-- Subpages -->
+<section id="smart-grid" class="subpage">
+    <button class="back-btn" onclick="goBack()">⟵ Back</button>
+    <h2>⚡ Smart Grid & Energy Distribution</h2>
+    <p>Optimizes energy distribution and reduces outages using AI-powered monitoring and load balancing.</p>
+
+    <h3>Sample Code</h3>
+    <pre>
+// Example: Dijkstra's Algorithm for energy optimization
+import heapq
+def dijkstra(graph, start):
+    queue = [(0, start)]
+    distances = {node: float('inf') for node in graph}
+    distances[start] = 0
+    while queue:
+        dist, node = heapq.heappop(queue)
+        for neighbor, weight in graph[node].items():
+            new_dist = dist + weight
+            if new_dist < distances[neighbor]:
+                distances[neighbor] = new_dist
+                heapq.heappush(queue, (new_dist, neighbor))
+    return distances
+    </pre>
+</section>
+
+<section id="waste-sorting" class="subpage">
+    <button class="back-btn" onclick="goBack()">⟵ Back</button>
+    <h2>🗑 Intelligent Waste Sorting System</h2>
+    <p>Automates classification of waste using sensors and AI for cleaner, sustainable cities.</p>
+  
+    <h3>Sample Code</h3>
+    <pre>
+# Decision Tree Example for waste sorting
+from sklearn import tree
+X = [[0,0],[1,1]]
+Y = [0,1]
+clf = tree.DecisionTreeClassifier()
+clf.fit(X,Y)
+pred = clf.predict([[2,2]])
+    </pre>
+</section>
+
+<section id="drone-delivery" class="subpage">
+    <button class="back-btn" onclick="goBack()">⟵ Back</button>
+    <h2>🚁 Drone-Based Delivery Network</h2>
+    <p>Autonomous drones reduce delivery time and costs with optimized routing.</p>
+   
+    <h3>Sample Code</h3>
+    <pre>
+# A* algorithm for drone routing
+from queue import PriorityQueue
+def a_star(start, goal, graph, h):
+    open_set = PriorityQueue()
+    open_set.put((0, start))
+    came_from = {}
+    g_score = {node: float('inf') for node in graph}
+    g_score[start] = 0
+    while not open_set.empty():
+        _, current = open_set.get()
+        if current == goal:
+            path = []
+            while current in came_from:
+                path.append(current)
+                current = came_from[current]
+            path.append(start)
+            return path[::-1]
+        for neighbor, cost in graph[current].items():
+            tentative_g = g_score[current] + cost
+            if tentative_g < g_score[neighbor]:
+                came_from[neighbor] = current
+                g_score[neighbor] = tentative_g
+                f_score = tentative_g + h(neighbor, goal)
+                open_set.put((f_score, neighbor))
+    return None
+    </pre>
+</section>
+
+<section id="health-analytics" class="subpage">
+    <button class="back-btn" onclick="goBack()">⟵ Back</button>
+    <h2>🏥 Predictive Healthcare Analytics</h2>
+    <p>Uses AI to predict diseases early and support proactive healthcare decisions.</p>
+  
+    <h3>Sample Code</h3>
+    <pre>
+# Linear Regression Example for healthcare prediction
+from sklearn.linear_model import LinearRegression
+X = [[1],[2],[3],[4]]
+y = [2,4,6,8]
+model = LinearRegression()
+model.fit(X,y)
+pred = model.predict([[5]])
+    </pre>
+</section>
+
+<section id="green-mobility" class="subpage">
+    <button class="back-btn" onclick="goBack()">⟵ Back</button>
+    <h2>🚆 Green Mobility Hubs</h2>
+    <p>Promotes EVs, e-bikes, and shared transport with IoT-managed hubs.</p>
+   
+    <h3>Sample Code</h3>
+    <pre>
+# Forecasting traffic and EV usage
+from statsmodels.tsa.arima.model import ARIMA
+data = [120,130,125,140,150]
+model = ARIMA(data, order=(1,1,1))
+model_fit = model.fit()
+forecast = model_fit.forecast(steps=2)
+    </pre>
+</section>
+
+<script>
+function openCase(id){
+    document.querySelectorAll('.subpage').forEach(s => s.style.display='none');
+    document.getElementById(id).style.display='block';
+    window.scrollTo(0,0);
+}
+function goBack(){
+    document.querySelectorAll('.subpage').forEach(s => s.style.display='none');
+    window.scrollTo(0,0);
+}
+</script>
+
+</body>
+</html>
